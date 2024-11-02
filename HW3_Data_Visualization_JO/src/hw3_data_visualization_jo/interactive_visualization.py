@@ -1,21 +1,8 @@
 import sys
 import os
-
-# Ensure the 'src' directory is added to the system path
-current_dir = os.path.dirname(os.path.abspath(__file__))
-src_path = os.path.abspath(os.path.join(current_dir, '../../../HW3_Data_Visualization_JO/src'))
-sys.path.insert(0, src_path)  # Insert at the beginning to prioritize
-
-# Debugging: Print out the current sys.path to verify if 'src' is properly added
-print("Updated sys.path:", sys.path)
-
 import panel as pn
 import matplotlib.pyplot as plt
-
-try:
-    from hw3_data_visualization_jo.data_loader import DataLoader  # Import DataLoader
-except ImportError as e:
-    print(f"Import Error: {e}")
+from hw3_data_visualization_jo.data_loader import DataLoader
 
 # Load the Panel extension
 pn.extension()
@@ -24,10 +11,24 @@ pn.extension()
 data_loader = DataLoader(r"C:\Users\jobri\OneDrive - Drexel University\MEM679\cropped_cards_data")
 images, labels = data_loader.load_images()
 
-# Interactive Visualization using Panel
 def display_image_selector(images, labels):
-    """Panel interface to select and view individual images."""
+    """
+    Panel interface to select and view individual images.
+
+    Args:
+        images (list): List of numpy arrays representing images.
+        labels (list): List of labels corresponding to each image.
+
+    Returns:
+        pn.interact: An interactive Panel widget for selecting and displaying images.
+    """
     def view_image(idx):
+        """
+        Displays the selected image with its label.
+
+        Args:
+            idx (int): The index of the image to display.
+        """
         plt.imshow(images[idx])
         plt.title(labels[idx])
         plt.axis("off")
