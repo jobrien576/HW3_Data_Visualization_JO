@@ -2,6 +2,13 @@ import sys
 import os
 import panel as pn
 import matplotlib.pyplot as plt
+
+# Ensure the directory containing "hw3_data_visualization_jo" is added to the system path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_path = os.path.abspath(os.path.join(current_dir, '../'))  # Go up one level to reach the folder containing "hw3_data_visualization_jo"
+sys.path.insert(0, src_path)
+
+# Import DataLoader after updating sys.path
 from hw3_data_visualization_jo.data_loader import DataLoader
 
 # Load the Panel extension
