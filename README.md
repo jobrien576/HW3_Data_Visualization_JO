@@ -60,3 +60,10 @@ Static visualizations are available in the Jupyter notebook `HW3_Data_Visualizat
 - Bar charts to visualize the number of images per rank and suit.
 - A pie chart to show the distribution of suits. (LOL)
 
+### Utility Scripts
+
+The `scripts` folder contains useful utility scripts for this project:
+
+- **crop_cards.py**: Script used to crop images of playing cards for preprocessing the dataset.
+
+
